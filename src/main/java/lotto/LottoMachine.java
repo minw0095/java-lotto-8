@@ -85,7 +85,6 @@ public class LottoMachine {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(PRINT_WINNINGNUMBERS_SIZE_ERROR);
         }
-//
     }
 
     private int parseNumber(String number) {

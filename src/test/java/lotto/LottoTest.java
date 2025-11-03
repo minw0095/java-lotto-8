@@ -1,5 +1,7 @@
 package lotto;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -30,6 +32,31 @@ class LottoTest {
         assertThatThrownBy(() -> new Lotto(List.of(1,2,3,4,5,60)))
                 .isInstanceOf(IllegalArgumentException.class);
 
+    }
+
+    @Test
+    void lottoAscendingTest() {
+        List<Integer> unsorted = new ArrayList<>(List.of(6, 3, 1, 4, 5, 2));
+        Lotto lotto = new Lotto(unsorted);
+        List<Integer> copy = new ArrayList<>(lotto.getNumbers());
+        Collections.sort(unsorted);
+        assertThat(copy).isEqualTo(unsorted);
+    }
+
+    @Test
+    void getNumbers_수정시_예외발생() {
+        Lotto lotto = new Lotto(List.of(1, 2, 3, 4, 5, 6));
+        List<Integer> numbers = lotto.getNumbers();
+        assertThatThrownBy(() -> numbers.add(7))
+                .isInstanceOf(UnsupportedOperationException.class);
+    }
+
+    @Test
+    void winningCount_당첨_개수_확인(){
+        Lotto lotto = new Lotto(List.of(1, 2, 3, 4, 5, 6));
+        WinningNumber winning = new WinningNumber(new Lotto(List.of(1, 2, 3, 7, 8, 9)), 10);
+
+        assertThat(lotto.winningCount(winning)).isEqualTo(3);
     }
 
 
