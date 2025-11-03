@@ -2,7 +2,6 @@ package lotto;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -38,7 +37,7 @@ class LottoTest {
     void lottoAscendingTest() {
         List<Integer> unsorted = new ArrayList<>(List.of(6, 3, 1, 4, 5, 2));
         Lotto lotto = new Lotto(unsorted);
-        List<Integer> copy = new ArrayList<>(lotto.getNumbers());
+        List<Integer> copy = new ArrayList<>(lotto.ascendingLotto());
         Collections.sort(unsorted);
         assertThat(copy).isEqualTo(unsorted);
     }

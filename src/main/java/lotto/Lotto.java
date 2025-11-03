@@ -29,7 +29,7 @@ public class Lotto {
         System.out.println(ascendingLotto());
     }
 
-    private List<Integer> ascendingLotto() {
+    public List<Integer> ascendingLotto() {
         return numbers.stream()
                 .sorted()
                 .collect(Collectors.toList());
