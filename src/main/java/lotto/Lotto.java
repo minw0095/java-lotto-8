@@ -21,7 +21,13 @@ public class Lotto {
     }
 
     public void printNumbers() {
-        System.out.println(numbers);
+        List<Integer> copyNumbers = new ArrayList<>(numbers);
+        System.out.println(ascendingLotto(copyNumbers));
+    }
+
+    private List<Integer> ascendingLotto(List<Integer> copyNumbers) {
+        Collections.sort(copyNumbers);
+        return copyNumbers;
     }
 
     private void validateSameNumber() {

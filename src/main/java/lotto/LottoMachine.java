@@ -3,7 +3,6 @@ package lotto;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,9 +17,7 @@ public class LottoMachine {
     }
 
     private List<Integer> pickRandomNumbers() {
-        List<Integer> randomNumber = Randoms.pickUniqueNumbersInRange(1,45,6);
-        Collections.sort(randomNumber);
-        return randomNumber;
+        return Randoms.pickUniqueNumbersInRange(1, 45, 6);
     }
 
     private List<Lotto> makeLotteries() {
