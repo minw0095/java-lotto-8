@@ -43,7 +43,7 @@ public class LottoMachine {
     private void printLotteries(List<Lotto> lotteries) {
         System.out.printf(PRINT_LOTTO_COUNT, ticket);
         System.out.println();
-        lotteries.forEach(Lotto::printNumbers);
+        lotteries.forEach(e-> System.out.println(e.ascendingLotto()));
     }
 
     private WinningNumber makeWinningNumber() {

@@ -30,10 +30,6 @@ public class Lotto {
         }
     }
 
-    public void printNumbers() {
-        System.out.println(ascendingLotto());
-    }
-
     public List<Integer> ascendingLotto() {
         return numbers.stream()
                 .sorted()
