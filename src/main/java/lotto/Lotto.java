@@ -3,6 +3,7 @@ package lotto;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Lotto {
     private static final String PRINT_LOTTO_SIZE_ERROR = "[ERROR] 로또 번호는 6개여야 합니다.";
@@ -25,13 +26,13 @@ public class Lotto {
     }
 
     public void printNumbers() {
-        List<Integer> copyNumbers = new ArrayList<>(numbers);
-        System.out.println(ascendingLotto(copyNumbers));
+        System.out.println(ascendingLotto());
     }
 
-    private List<Integer> ascendingLotto(List<Integer> copyNumbers) {
-        Collections.sort(copyNumbers);
-        return copyNumbers;
+    private List<Integer> ascendingLotto() {
+        return numbers.stream()
+                .sorted()
+                .collect(Collectors.toList());
     }
 
     private void validateSameNumber() {
