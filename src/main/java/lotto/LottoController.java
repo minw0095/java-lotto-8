@@ -2,6 +2,8 @@ package lotto;
 
 public class LottoController {
 
+    private static final String PRINT_TOTAL_PROFIT = "총 수익률은 %s%%입니다.";
+
     private final InputView inputView;
 
     public LottoController(InputView inputView) {
@@ -17,7 +19,7 @@ public class LottoController {
             prize.printResult();
         }
 
-        System.out.printf("총 수익률은 %s%%입니다.", Prize.getRateOfReturn(lottoStore.getMoney()));
+        System.out.printf(PRINT_TOTAL_PROFIT, Prize.getRateOfReturn(lottoStore.getMoney()));
 
     }
 }

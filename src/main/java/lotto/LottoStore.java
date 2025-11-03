@@ -2,6 +2,10 @@ package lotto;
 
 public class LottoStore {
 
+    private static final String PRINT_MONEY_THOUSAND_UNIT_ERROR = "[ERROR] 로또는 1개당 1000원입니다.";
+    private static final String PRINT_MONEY_NOT_NUMBER_ERROR = "[ERROR] 1000원 단위의 숫자를 입력해주세요.";
+
+
     private final InputView inputView;
     private int money;
     private int ticket;
@@ -35,7 +39,7 @@ public class LottoStore {
 
     public void validatePerThousand(int money) {
         if (money % 1000 != 0 || money < 1000) {
-            throw new IllegalArgumentException("[ERROR] 로또는 1개당 1000원입니다.");
+            throw new IllegalArgumentException(PRINT_MONEY_THOUSAND_UNIT_ERROR);
         }
 
     }
@@ -44,7 +48,7 @@ public class LottoStore {
         try {
             return Integer.parseInt(money);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("[ERROR] 1000원 단위의 숫자를 입력해주세요.");
+            throw new IllegalArgumentException(PRINT_MONEY_NOT_NUMBER_ERROR);
         }
     }
 

@@ -11,6 +11,9 @@ public enum Prize {
     FIRST(6, 2_000_000_000, false, 0),
     ;
 
+    private static final String DECIMAL_PATTERN = "###,###";
+    private static final String ROUND_PATTERN = "%.1f";
+
     private final int matchCount;
     private final int reward;
     private final boolean isMatchBonus;
@@ -46,7 +49,7 @@ public enum Prize {
     }
 
     private String makeComma(int number) {
-        DecimalFormat decimalFormat = new DecimalFormat("###,###");
+        DecimalFormat decimalFormat = new DecimalFormat(DECIMAL_PATTERN);
         return decimalFormat.format(number);
     }
 
@@ -63,6 +66,6 @@ public enum Prize {
     }
 
     public static String getRateOfReturn(int money) {
-        return String.format("%.1f", totalReward() * 100 / money);
+        return String.format(ROUND_PATTERN, totalReward() * 100 / money);
     }
 }
