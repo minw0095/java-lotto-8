@@ -40,8 +40,8 @@ public enum Prize {
 
     }
 
-    public int getWinnerCount() {
-        return winnerCount;
+    public int getMatchCount() {
+        return matchCount;
     }
 
     public int getTotalReward() {

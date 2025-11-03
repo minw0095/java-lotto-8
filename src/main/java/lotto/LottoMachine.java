@@ -13,6 +13,7 @@ public class LottoMachine {
     private static final String PRINT_LOTTO_COUNT = "%s개를 구매했습니다.";
     private static final String PRINT_WINNINGNUMBERS_SIZE_ERROR = "[ERROR] 6자리 숫자를 적어주세요.";
     private static final String PRINT_WINNINGNUMBERS_NOT_NUMBER_ERROR = "[ERROR] 숫자를 적어주세요.";
+    private static final String SPLIT_REGEX = ",";
 
 
     private final InputView inputView;
@@ -81,7 +82,7 @@ public class LottoMachine {
 
     private List<Integer> lottoNumber(String number) {
         try {
-            return Arrays.stream(number.split(",")).map(Integer::parseInt).collect(Collectors.toList());
+            return Arrays.stream(number.split(SPLIT_REGEX)).map(Integer::parseInt).collect(Collectors.toList());
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(PRINT_WINNINGNUMBERS_SIZE_ERROR);
         }

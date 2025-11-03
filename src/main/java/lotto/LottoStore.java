@@ -4,6 +4,7 @@ public class LottoStore {
 
     private static final String PRINT_MONEY_THOUSAND_UNIT_ERROR = "[ERROR] 로또는 1개당 1000원입니다.";
     private static final String PRINT_MONEY_NOT_NUMBER_ERROR = "[ERROR] 1000원 단위의 숫자를 입력해주세요.";
+    private static final int MONEY_MINIMUM_UNIT = 1000;
 
 
     private final InputView inputView;
@@ -21,7 +22,7 @@ public class LottoStore {
                 String moneyInput = inputView.moneyInput();
                 money = parseMoney(moneyInput);
                 validatePerThousand(money);
-                ticket = money / 1000;
+                ticket = money / MONEY_MINIMUM_UNIT;
                 break;
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
@@ -38,7 +39,7 @@ public class LottoStore {
     }
 
     public void validatePerThousand(int money) {
-        if (money % 1000 != 0 || money < 1000) {
+        if (money % MONEY_MINIMUM_UNIT != 0 || money < MONEY_MINIMUM_UNIT) {
             throw new IllegalArgumentException(PRINT_MONEY_THOUSAND_UNIT_ERROR);
         }
 
